@@ -1,9 +1,13 @@
 #include <iostream>
 #include "Golf.h"
+#include <fstream>
 using namespace std;
 
 int main(){
 
+
+
+//==========User Prompt===========
     int z=0 ;
     cout << " Welcome!" << endl;
     cout<<"Please Select:"<<endl;
@@ -59,6 +63,19 @@ int main(){
        myGolf[2].Display();
        cout<<" \n Thank You For Playing \n"<<endl;
        }
+
+       else if (z== 3){
+            ifstream file("scorecards.txt");
+       if (! file)
+        {
+        cout << "No scorecards found.  \n"<<endl;
+    }
+    else
+    {
+        cout << "\n      Saved Scorecards     \n"<<endl;
+        cout << file.rdbuf()<<endl;   // prints entire file
+    }
+}
 
  return 0;
    }
